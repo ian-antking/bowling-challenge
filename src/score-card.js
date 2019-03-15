@@ -18,6 +18,8 @@ ScoreCard.prototype.totalScores = function totalScores() {
     let frameTotal = set.reduce((acc, next) => acc + next);
     if ((frameTotal === 10) && (set.length === 2)) {
       frameTotal += this.scores[setIndex + 1][0];
+    } else if ((frameTotal === 10) && (set.length === 1)) {
+      frameTotal += this.scores[setIndex + 1][0] + this.scores[setIndex + 1][1];
     }
     score += frameTotal;
   });

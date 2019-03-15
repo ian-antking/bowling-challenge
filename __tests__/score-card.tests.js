@@ -44,8 +44,8 @@ describe('scorecard', () => {
       expect(scoreCard.totalScores()).toBe(20);
     });
     it('calculates the strike bonus', () => {
-      scoreCard.scores = [[10], [5, 5]];
-      expect(expect(scoreCard.totalScores()).toBe(30));
+      scoreCard.scores = [[10], [2, 2]];
+      expect(expect(scoreCard.totalScores()).toBe(18));
     });
   });
 });
