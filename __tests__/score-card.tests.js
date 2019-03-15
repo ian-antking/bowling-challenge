@@ -33,6 +33,16 @@ describe('scorecard', () => {
       scoreCard.bowl(10);
       expect(scoreCard.scores).toEqual([[10], [10]]);
     });
+    it('adds extra ball is spare scored in 10th frame', () => {
+      for (let bowl = 1; bowl <= 9; bowl += 1) {
+        scoreCard.bowl(10);
+      }
+      scoreCard.bowl(5);
+      scoreCard.bowl(5);
+      scoreCard.bowl(5);
+      const expectedScores = [[10], [10], [10], [10], [10], [10], [10], [10], [10], [5, 5, 5]];
+      expect(scoreCard.scores).toEqual(expectedScores);
+    });
   });
   describe('total the scores', () => {
     it('adding the scores in the array', () => {
@@ -45,7 +55,11 @@ describe('scorecard', () => {
     });
     it('calculates the strike bonus', () => {
       scoreCard.scores = [[10], [2, 2]];
-      expect(expect(scoreCard.totalScores()).toBe(18));
+      expect(scoreCard.totalScores()).toBe(18);
+    });
+    xit('calculates a perfect score', () => {
+      scoreCard.scores = [[10], [10], [10], [10], [10], [10], [10], [10], [10], [10, 10, 10]];
+      expect(scoreCard.totalScores()).toBe(300);
     });
   });
 });

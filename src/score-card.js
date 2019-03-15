@@ -4,7 +4,9 @@ function ScoreCard() {
 }
 
 ScoreCard.prototype.bowl = function bowl(pins) {
-  if (this.scores[this.frameIndex].length === 2 || this.scores[this.frameIndex][0] === 10) {
+  if (this.frameIndex === 9) {
+    this.scores[this.frameIndex].push(pins);
+  } else if (this.scores[this.frameIndex].length === 2 || this.scores[this.frameIndex][0] === 10) {
     this.scores.push([pins]);
     this.frameIndex += 1;
   } else {
