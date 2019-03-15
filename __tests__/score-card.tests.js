@@ -36,8 +36,8 @@ describe('scorecard', () => {
   });
   describe('total the scores', () => {
     it('adding the scores in the array', () => {
-      scoreCard.scores = [1, 2, 3];
-      expect(scoreCard.totalScores()).toBe(6);
+      scoreCard.scores = [[1, 2]];
+      expect(scoreCard.totalScores()).toBe(3);
     });
     it('create final score if there is a spare', () => {
       scoreCard.scores = [[5, 5], [3, 4]];

@@ -13,7 +13,15 @@ ScoreCard.prototype.bowl = function bowl(pins) {
 };
 
 ScoreCard.prototype.totalScores = function totalScores() {
-  return this.scores.reduce((acc, next) => acc += next[0] + next[1], 0);
+  let score = 0;
+  this.scores.forEach((set, setIndex) => {
+    let frameTotal = set.reduce((acc, next) => acc + next);
+    if ((frameTotal === 10) && (set.length === 2)) {
+      frameTotal += this.scores[setIndex + 1][0];
+    }
+    score += frameTotal;
+  });
+  return score;
 };
 
 module.exports = ScoreCard;
