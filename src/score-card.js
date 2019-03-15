@@ -21,7 +21,9 @@ ScoreCard.prototype.totalScores = function totalScores() {
     if ((frameTotal === 10) && (set.length === 2)) {
       frameTotal += this.scores[setIndex + 1][0];
     } else if ((frameTotal === 10) && (set.length === 1)) {
-      frameTotal += this.scores[setIndex + 1][0] + this.scores[setIndex + 1][1];
+      const nextBowl1 = this.scores[setIndex + 1][0];
+      const nextBowl2 = this.scores[setIndex + 1][1] || this.scores[setIndex + 2][0];
+      frameTotal += nextBowl1 + nextBowl2;
     }
     score += frameTotal;
   });

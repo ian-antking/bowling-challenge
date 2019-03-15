@@ -57,8 +57,10 @@ describe('scorecard', () => {
       scoreCard.scores = [[10], [2, 2]];
       expect(scoreCard.totalScores()).toBe(18);
     });
-    xit('calculates a perfect score', () => {
-      scoreCard.scores = [[10], [10], [10], [10], [10], [10], [10], [10], [10], [10, 10, 10]];
+    it('calculates a perfect score', () => {
+      for (let bowl = 1; bowl <= 12; bowl += 1) {
+        scoreCard.bowl(10);
+      }
       expect(scoreCard.totalScores()).toBe(300);
     });
   });
