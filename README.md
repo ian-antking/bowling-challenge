@@ -26,3 +26,16 @@ Build a `ScoreCard` object for keeping track of bowling scores.
 * In the 10th frame a player who rolls a spare or strike is allowed to roll the extra balls to complete the frame. 
 * However no more than three balls can be rolled in the 10th frame.
 * A perfect game is therefore 12 strikes, yielding a score of 300.
+
+## Properties
+* Frames
+* Score
+* playerName
+* currentSet
+
+## Methods
+* bowl
+* calculate points
+* detect strike
+* detect spare
+
